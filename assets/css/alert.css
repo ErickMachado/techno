@@ -1,0 +1,23 @@
+.alert {
+  display: none;
+  left: 0;
+  position: absolute;
+  top: 2rem;
+  text-align: center;
+  width: 100%;
+  z-index: 10;
+}
+
+.alert.active {
+  display: block;
+}
+
+.alert__message {
+  background: var(--color-light);
+  border: 2px solid var(--color-dark);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  font-size: 1.6rem;
+  display: inline-block;
+  padding: 2rem 4rem;
+}

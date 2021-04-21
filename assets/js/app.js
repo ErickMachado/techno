@@ -2,8 +2,11 @@ const vue = new Vue({
   el: '#app',
   created() {
     this.getProducts();
+    this.checkStorageProducts();
   },
   data: {
+    alertMessage: '',
+    alertActive: false,
     cart: [],
     products: [],
     product: false
@@ -64,12 +67,30 @@ const vue = new Vue({
       this.product = false;
     },
     addProductToCart() {
+      this.showAlert(`${this.product.name} adicionado ao carrinho 🎉`);
       this.product.stock--;
       const { id, name, price } = this.product;
       this.cart.push({ id, name, price });
     },
     removeProductFromCart(productIndex) {
       this.cart.splice(productIndex, 1);
+    },
+    checkStorageProducts() {
+      const storageProducts = localStorage.getItem('cart');
+
+      if (storageProducts) {
+        this.cart = JSON.parse(storageProducts);
+      }
+    },
+    showAlert(message) {
+      this.alertActive = true;
+      this.alertMessage = message;
+      setTimeout(() => (this.alertActive = false), 2000);
+    }
+  },
+  watch: {
+    cart() {
+      localStorage.setItem('cart', JSON.stringify(this.cart));
     }
   }
 });

@@ -80,6 +80,10 @@
           </div>
         </div>
       </section>
+      <!-- Alert -->
+      <div :class="['alert', { 'active': alertActive }, 'anim-fadeInDown']">
+        <p class="alert__message">{{ alertMessage }}</p>
+      </div>
     </div>
     <script src="./assets/js/vue.min.js"></script>
     <script src="./assets/js/app.js"></script>
