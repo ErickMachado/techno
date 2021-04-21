@@ -1,0 +1,20 @@
+{
+  "id": 5,
+  "name": "Speaker",
+  "price": 499,
+  "description": "Speaker ultra leve, tela em fullHD",
+  "stock": 6,
+  "image": "./api/products/speaker/speaker-vertical.jpg",
+  "reviews": [
+    {
+      "name": "Fábio",
+      "stars": 5,
+      "description": "Gostei muito do produto, atendeu todas as minhas necessidades."
+    },
+    {
+      "name": "Natalie",
+      "stars": 4,
+      "description": "Produto excelente, mas poderia ser mais barato."
+    }
+  ]
+}

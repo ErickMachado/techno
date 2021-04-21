@@ -1,0 +1,6 @@
+:root {
+  --color-dark: #1a1a1a;
+  --color-dark-opacity: rgba(26, 26, 26, 0.5);
+  --color-light: #fff;
+  --color-light-opacity: rgba(255, 255, 255, 0.5);
+}

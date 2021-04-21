@@ -1,0 +1,24 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  background: linear-gradient(
+    to right,
+    var(--color-dark) 30%,
+    var(--color-light) 30%
+  );
+  font-family: var(--font-primary);
+}
+
+#app {
+  padding: 0 80px;
+}

@@ -1,0 +1,20 @@
+{
+  "id": 2,
+  "name": "Smartphone",
+  "price": 1299,
+  "description": "Smartphone ultra leve, tela em fullHD",
+  "stock": 5,
+  "image": "./api/products/smartphone/smartphone-vertical.jpg",
+  "reviews": [
+    {
+      "name": "Fábio",
+      "stars": 5,
+      "description": "Gostei muito do produto, atendeu todas as minhas necessidades."
+    },
+    {
+      "name": "Natalie",
+      "stars": 4,
+      "description": "Produto excelente, mas poderia ser mais barato."
+    }
+  ]
+}

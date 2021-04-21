@@ -1,0 +1,20 @@
+{
+  "id": 4,
+  "name": "Smartwatch",
+  "price": 299,
+  "description": "Smartwatch ultra leve, tela em fullHD",
+  "stock": 8,
+  "image": "./api/products/smartwatch/smartwatch-vertical.jpg",
+  "reviews": [
+    {
+      "name": "Fábio",
+      "stars": 5,
+      "description": "Gostei muito do produto, atendeu todas as minhas necessidades."
+    },
+    {
+      "name": "Natalie",
+      "stars": 4,
+      "description": "Produto excelente, mas poderia ser mais barato."
+    }
+  ]
+}

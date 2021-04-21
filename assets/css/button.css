@@ -1,0 +1,26 @@
+.btn {
+  background: none;
+  border: none;
+  border-radius: 999px;
+  color: var(--color-light);
+  cursor: pointer;
+  display: block;
+  font-family: var(--font-primary);
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 0.8rem 1.6rem;
+  text-align: center;
+}
+
+.btn.is-primary {
+  background: var(--color-dark);
+}
+
+.btn.is-primary:active {
+  background: #808080;
+}
+
+.btn.is-primary[disabled] {
+  background: #808080;
+  cursor: initial;
+}

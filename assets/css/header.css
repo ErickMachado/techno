@@ -1,0 +1,31 @@
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 90rem;
+  padding: 2rem 0;
+}
+
+.header__brand {
+  width: 8rem;
+}
+
+.cart__info {
+  align-items: center;
+  display: flex;
+}
+
+.cart__info::after {
+  background: url('../images/icons/bag.svg') center center no-repeat;
+  content: '';
+  cursor: pointer;
+  display: inline-block;
+  height: 2.5rem;
+  margin-left: 1rem;
+  width: 2.5rem;
+}
+
+.cart__info {
+  font-size: 1.6rem;
+}

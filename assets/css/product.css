@@ -1,0 +1,44 @@
+.products {
+  margin: 10rem auto 0;
+  max-width: 90rem;
+}
+
+.product {
+  align-items: center;
+  border-radius: 2rem;
+  background: var(--color-light);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  display: flex;
+  margin-bottom: 4rem;
+  transition: background 0.3s ease;
+}
+
+.product:hover {
+  background: var(--color-dark);
+  color: var(--color-light);
+}
+
+.product:hover .product__price {
+  color: var(--color-light);
+}
+
+.product__image {
+  border-radius: 2rem 0 0 2rem;
+  margin-right: 4rem;
+  max-width: 30rem;
+}
+
+.product__image img {
+  border-radius: 2rem 0 0 2rem;
+}
+
+.product__title {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.product__price {
+  color: var(--color-dark-opacity);
+  font-size: 1.6rem;
+}

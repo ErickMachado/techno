@@ -1,0 +1,20 @@
+{
+  "id": 3,
+  "name": "Tablet",
+  "price": 899,
+  "description": "Tablet ultra leve, tela em fullHD",
+  "stock": 12,
+  "image": "./api/products/tablet/tablet-vertical.jpg",
+  "reviews": [
+    {
+      "name": "Fábio",
+      "stars": 5,
+      "description": "Gostei muito do produto, atendeu todas as minhas necessidades."
+    },
+    {
+      "name": "Natalie",
+      "stars": 4,
+      "description": "Produto excelente, mas poderia ser mais barato."
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Techno | Comércio de eletrônicos</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Header -->
+      <div v-for="(product, index) in cart">
+        {{ product.name }}
+        <button @click="removeProductFromCart(index)">X</button>
+      </div>
+      <header class="header">
+        <img
+          src="./assets/images/techno.svg"
+          alt="Techno"
+          class="header__brand"
+        />
+        <div class="cart">
+          <div class="cart__info">
+            {{ totalInCart }} | {{ totalPurchase | formatNumberToCurrency }}
+          </div>
+        </div>
+      </header>
+      <!-- Products list -->
+      <section class="products">
+        <div
+          @click="openModal(product.name)"
+          v-for="product in products"
+          :key="product.id"
+          class="product"
+        >
+          <img
+            class="product__image"
+            :src="product.image"
+            :alt="product.name"
+          />
+          <div class="product__info">
+            <span class="product__price">
+              {{ product.price | formatNumberToCurrency }}
+            </span>
+            <h2 class="product__title">{{ product.name }}</h2>
+          </div>
+        </div>
+      </section>
+      <!-- Modal -->
+      <section @click.self="closeModal" v-if="product" class="modal">
+        <div :class="['modal__container', 'anim-fadeInLeft']">
+          <button @click="closeModal" class="modal__close">X</button>
+          <div class="modal__image">
+            <img :src="product.image" :alt="product.name" />
+          </div>
+          <div class="modal__info">
+            <span class="modal__price">
+              {{ product.price | formatNumberToCurrency }}
+            </span>
+            <h2 class="modal__title">{{ product.name }}</h2>
+            <p class="modal__description">{{ product.description }}</p>
+            <button
+              @click="addProductToCart"
+              :disabled="!product.stock"
+              class="btn is-primary"
+            >
+              <span v-if="product.stock">Adicionar ao carrinho</span>
+              <span v-else>Esgotado</span>
+            </button>
+          </div>
+          <div class="modal__footer">
+            <h2 class="modal__subtitle">Avaliações</h2>
+            <ul class="modal__reviews">
+              <li v-for="review in product.reviews" class="modal__review">
+                <p>{{ review.description }}</p>
+                <span>{{ review.name }} | {{ review.stars }} estrelas</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="./assets/js/vue.min.js"></script>
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>
