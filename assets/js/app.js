@@ -2,12 +2,14 @@ const vue = new Vue({
   el: '#app',
   created() {
     this.getProducts();
+    this.redirect();
     this.checkStorageProducts();
   },
   data: {
     alertMessage: '',
     alertActive: false,
     cart: [],
+    cartModalActive: false,
     products: [],
     product: false
   },
@@ -66,6 +68,12 @@ const vue = new Vue({
     closeModal() {
       this.product = false;
     },
+    openCartModal() {
+      this.cartModalActive = true;
+    },
+    closeCartModal() {
+      this.cartModalActive = false;
+    },
     addProductToCart() {
       this.showAlert(`${this.product.name} adicionado ao carrinho 🎉`);
       this.product.stock--;
@@ -86,11 +94,23 @@ const vue = new Vue({
       this.alertActive = true;
       this.alertMessage = message;
       setTimeout(() => (this.alertActive = false), 2000);
+    },
+    redirect() {
+      const hash = document.location.hash.replace('#', '');
+
+      if (hash) {
+        this.getProduct(hash);
+      }
     }
   },
   watch: {
     cart() {
       localStorage.setItem('cart', JSON.stringify(this.cart));
+    },
+    product() {
+      document.title = this.product.name || 'Techno | Comércio de eletrônicos';
+      const hash = this.product.name || '';
+      history.pushState(null, null, `#${hash}`);
     }
   }
 });

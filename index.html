@@ -10,17 +10,13 @@
   <body>
     <div id="app">
       <!-- Header -->
-      <div v-for="(product, index) in cart">
-        {{ product.name }}
-        <button @click="removeProductFromCart(index)">X</button>
-      </div>
       <header class="header">
         <img
           src="./assets/images/techno.svg"
           alt="Techno"
           class="header__brand"
         />
-        <div class="cart">
+        <div @click="openCartModal" class="cart">
           <div class="cart__info">
             {{ totalInCart }} | {{ totalPurchase | formatNumberToCurrency }}
           </div>
@@ -77,6 +73,40 @@
                 <span>{{ review.name }} | {{ review.stars }} estrelas</span>
               </li>
             </ul>
+          </div>
+        </div>
+      </section>
+      <!-- Cart modal -->
+      <section
+        v-if="cartModalActive"
+        @click.self="closeCartModal"
+        :class="['modal', 'anim-fadeInLeft']"
+      >
+        <div class="modal__container is-cart">
+          <button @click="closeCartModal" class="modal__close">X</button>
+          <h2 class="modal__title">Minha sacola</h2>
+          <div v-if="cart.length > 0">
+            <ul class="modal__list">
+              <li
+                v-for="(product, index) in cart"
+                :key="product.id"
+                class="modal__items"
+              >
+                <p>{{ product.name }}</p>
+                <p>{{ product.price | formatNumberToCurrency }}</p>
+                <button @click="removeProductFromCart(index)">X</button>
+              </li>
+            </ul>
+            <p class="modal__total">
+              Total: {{ totalPurchase | formatNumberToCurrency }}
+            </p>
+            <div class="modal__footer">
+              <button class="btn is-primary">Finalizar pedido</button>
+            </div>
+          </div>
+          <div v-else class="modal__empty">
+            <img src="./assets/images/empty-cart.svg" alt="" />
+            <p>Tudo vazio por aqui. Adicione produtos à sua sacola 🛍️</p>
           </div>
         </div>
       </section>
