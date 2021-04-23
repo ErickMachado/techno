@@ -101,6 +101,13 @@ const vue = new Vue({
       if (hash) {
         this.getProduct(hash);
       }
+    },
+    compareStock() {
+      const products = this.cart.filter((product) => {
+        return product.id === this.product.id ? true : false;
+      });
+
+      this.product.stock -= products.length;
     }
   },
   watch: {
@@ -111,6 +118,8 @@ const vue = new Vue({
       document.title = this.product.name || 'Techno | Comércio de eletrônicos';
       const hash = this.product.name || '';
       history.pushState(null, null, `#${hash}`);
+
+      this.compareStock();
     }
   }
 });
